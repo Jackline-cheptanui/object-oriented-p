@@ -1,30 +1,75 @@
 fun main() {
-    var person=Human("sharon",21,50)
-    person.eat(foodWeight = 4)
-    person.birthday()
+    var pati=Car("subaru","mustand","white",14)
+    pati.carry(20)
+    println("I am a${pati.make}${pati.model}${pati.color}${pati.capacity}")
 
-    person.speak("I mobile development")
-    var jackline=User("jackline","maina","we345","0748653826",987754)
-    println(jackline.firstname)
-    println(jackline.email)
+   println ( pati.calculateParkingFees(6))
+
+    var basi = Car.Bus("subaru","mustand","white",14)
+    println(basi.maxTripFare(300.toDouble()*pati.capacity))
+    println()
+
+
+
+
+
+
+
 
 
 
 
 }
-class Human(var name:String,var age:Int,var weight:Int){
-    fun eat(foodWeight: Int){
-        println("I am eating $foodWeight kgs of food")
-        weight=weight+foodWeight
+open class Car(var make:String,var model:String,var color:String,var capacity:Int) {
+    fun carry(people: Int) {
+        println(" carry$people passangers")
+        var people = people - capacity
+        if (people <= capacity) {
+            println(" carry$people passangers")
+        } else {
+            println("over capacity by$people")
+        }
+    }
+
+    fun calculateParkingFees(hours: Int): Int {
+        return hours * 20
+    }
+
+
+    class Bus(var make: String, var model: String, var color: String, var capacity: Int) {
+        fun maxTripFare(fare: Double): Double {
+            var t = 0
+            return t + fare
+
+
+        }
 
 
     }
-    fun speak(speech:String){
-        println("I love mobile development")
-    }
-    fun birthday(){
-        age =age++
-        println(age)
-    }}
-data class User(var firstname:String,var lastname:String,var email:String,var phonenumber: String,var password:Int)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
